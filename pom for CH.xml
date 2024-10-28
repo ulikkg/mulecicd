@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>b96aafe9-354e-4e08-8791-4f78e81261cd</groupId>
+	<groupId>com.mycompany</groupId>
 	<artifactId>ulansmulecicd</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
 	<name>ulansmulecicd</name>
@@ -32,20 +32,28 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudhub2Deployment>
-			            <uri>https://anypoint.mulesoft.com</uri>
-			            <provider>MC</provider>
-			            <environment>Sandbox</environment>
-			            <target>Cloudhub-EU-Central-1</target>
-			            <server>Repository</server>
-			            <applicationName>${project.artifactId}</applicationName>
-			            <releaseChannel>NONE</releaseChannel>
-			            <replicas>1</replicas>
-			            <vCores>0.1</vCores>
-			            <deploymentSettings>
-			                <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-			            </deploymentSettings>
-			        </cloudhub2Deployment>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<!-- <username>${anypoint.username}</username>
+						<password>${anypoint.password}</password> -->
+						<!-- Start: CONNECTED APP -->
+						<connectedAppClientId>${client.id}</connectedAppClientId>
+						<connectedAppClientSecret>${client.secret}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<!-- End: CONNECTED APP -->
+						<applicationName>${app.name}</applicationName>
+						<environment>${env}</environment>
+						<workerType>MICRO</workerType>
+						<region>us-east-2</region>
+						<workers>1</workers>
+						<objectStoreV2>true</objectStoreV2>
+						<!-- Start: SECURED PROPERTIES CI/CD -->
+						<properties>
+							<secure.key>${decryption.key}</secure.key>
+						</properties>
+						<!-- End: SECURED PROPERTIES CI/CD -->
+					</cloudHubDeployment>
 					<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
@@ -86,12 +94,6 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-		<repository>
-		    <id>Repository</id>
-		    <name>Private Exchange repository</name>
-		    <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
-		    <layout>default</layout>
-		</repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -105,12 +107,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<distributionManagement>
-	    <repository>
-	        <id>Repository</id>
-	        <name>Corporate Repository</name>
-	        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
-	        <layout>default</layout>
-	    </repository>
-	</distributionManagement>
+
 </project>
