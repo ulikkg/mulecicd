@@ -39,7 +39,7 @@
 			            <target>Cloudhub-EU-Central-1</target>
 			            <server>Repository</server>
 			            <applicationName>${project.artifactId}</applicationName>
-			            <releaseChannel>NONE</releaseChannel>
+			            <releaseChannel>EDGE</releaseChannel>
 			            <replicas>1</replicas>
 			            <vCores>0.1</vCores>
 			            <deploymentSettings>
