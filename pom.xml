@@ -4,7 +4,7 @@
 
 	<groupId>b96aafe9-354e-4e08-8791-4f78e81261cd</groupId>
 	<artifactId>ulansmulecicd</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>mule-application</packaging>
 
 	<name>ulansmulecicd</name>
@@ -45,6 +45,9 @@
 			            <deploymentSettings>
 			                <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
 			            </deploymentSettings>
+			            <properties>
+							<secure.key>${decryption.key}</secure.key>
+						</properties>
 			        </cloudhub2Deployment>
 					<classifier>mule-application</classifier>
 				</configuration>
