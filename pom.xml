@@ -4,7 +4,7 @@
 
 	<groupId>b96aafe9-354e-4e08-8791-4f78e81261cd</groupId>
 	<artifactId>ulansmulecicd</artifactId>
-	<version>1.0.4-s123456</version>
+	<version>1.0.4-1</version>
 	<packaging>mule-application</packaging>
 
 	<name>ulansmulecicd</name>
