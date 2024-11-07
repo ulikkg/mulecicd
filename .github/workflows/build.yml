@@ -2,7 +2,11 @@ name: Publish to Exchange & Deploy to CH2.0
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
+      - 'feat/**'
+    tags:
+      - '*rev*'
     
 jobs:         
   build:
