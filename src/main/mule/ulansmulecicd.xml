@@ -6,7 +6,7 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">	
 	<flow name="ulansmulecicdFlow" doc:id="72556a63-5dcc-4d18-b2fa-70712930d5bb" >
 		<http:listener doc:name="Listener" doc:id="744613e6-80c7-4bec-bd56-27c0271b9d58" config-ref="HTTP_Listener_config" path="/info"/>
-		<set-payload value='"Hello CI CD on CH2"' doc:name="Set Payload" doc:id="f17e7337-375c-4c08-ba2f-ff222506e70f" />
+		<set-payload value='"Hello CI/CD on CH2 Dev f01-updateraml"' doc:name="Set Payload" doc:id="f17e7337-375c-4c08-ba2f-ff222506e70f" />
 		<logger level="INFO" doc:name="Logger" doc:id="ac4721fd-4234-4ef8-8418-f998e04e8442" message='#[output application/java&#10;---&#10;"Client ID: " ++ Mule::p("secure::client.id")&#10;++ " - " ++&#10;"Client Secret: " ++ Mule::p("secure::client.secret")]'/>
 	</flow>
 </mule>
