@@ -4,7 +4,7 @@
 
 	<groupId>b96aafe9-354e-4e08-8791-4f78e81261cd</groupId>
 	<artifactId>ulansmulecicd</artifactId>
-	<version>1.0.4-1</version>
+	<version>1.0.4-rev3</version>
 	<packaging>mule-application</packaging>
 
 	<name>ulansmulecicd</name>
@@ -16,7 +16,7 @@
 		<app.runtime>4.8.0</app.runtime>
 		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 		<app.name>ulansmulecicd</app.name>
-		<env>Sandbox</env>
+		<env>Staging</env>
 	</properties>
 
 	<build>
@@ -35,7 +35,7 @@
 					<cloudhub2Deployment>
 			            <uri>https://anypoint.mulesoft.com</uri>
 			            <provider>MC</provider>
-			            <environment>Sandbox</environment>
+			            <environment>Staging</environment>
 			            <target>Cloudhub-EU-Central-1</target>
 			            <server>Repository</server>
 			            <applicationName>${project.artifactId}</applicationName>
